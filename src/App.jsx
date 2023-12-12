@@ -1,11 +1,15 @@
 
 import './App.css'
-import PokemonCard from './component/PokemonCard'
+import React from 'react'
+import PokemonCard from './component/PokemonCard.jsx'
+
 
 function App() {
+  return(
   <div>
     <PokemonCard />
-  </div>
+  
+  </div>)
 }
 
 export default App
