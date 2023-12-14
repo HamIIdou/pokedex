@@ -3,8 +3,12 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import PokemonCard from './component/PokemonCard';
+import NavBar from './component/NavBar';
+
+
 
 function App() {
+  const [pokemonIndex, setPokemonIndex] = useState(0)
   const pokemonList = [
     {
       name: 'Bulbasaur',
@@ -18,18 +22,11 @@ function App() {
       imgSrc: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png',
     },
   ];
-  const [pokemonIndex, setPokemonIndex] = useState(0)
-  const handleClickNext = () => {
-    setPokemonIndex(pokemonIndex+1)
-  }
-  const handleClickBefore = () => {
-    setPokemonIndex(pokemonIndex-1)
-  }
+
   return (
     <div>
     <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
-    {pokemonIndex>0 && <button onClick={handleClickBefore}>Précédent</button>}
-    {pokemonIndex< pokemonList.length-1 && <button onClick={handleClickNext}>Suivant</button>}
+    <NavBar pokemonList={pokemonList} setPokemonIndex={setPokemonIndex} pokemonIndex={pokemonIndex}/>
     </div>
   )
 }
